@@ -4,7 +4,7 @@ from selenium import webdriver
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("start-maximized")
 chrome_options.add_argument("--incognito") #using this argument the browser is opened in incognito mode
-# chrome_options.headless = True    Using this argument you wont get the windows view
+# chrome_options.headless = True    Using this argument you wont get the windows 
 
 driver = webdriver.Chrome(chrome_options=chrome_options)
 

@@ -10,6 +10,6 @@ function scanningUrl(info) {
 
 chrome.contextMenus.create({
     title: "Scan with HunterPhisher",
-    contexts: ["link", "image", "selection"],
+    contexts: ["link", "selection"],
     onclick: scanningUrl
 });

@@ -1,4 +1,8 @@
-import eel
+from flask import Flask, render_templates
 
-eel.init("eelPython")
-eel.start("home.html" , size=(200,200))
+app = Flask(__name__)
+
+@app.route('/', methods=['GET','POST'])
+
+def check():
+    

@@ -1,12 +1,8 @@
 function scanningUrl(info) {
 
     link = info.linkUrl
-    if (link && !info.selectionText) {
-        console.log("\nThe Link: " + link);
-    } else if (info.selectionText && !link) {
-        console.log("\nThe Link: " + link);
+    alert(link)
 
-    }
 }
 
 chrome.contextMenus.create({

@@ -1,8 +1,9 @@
-from flask import Flask, render_templates
+# from flask import Flask, render_templates, request
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-@app.route('/', methods=['GET','POST'])
+# @app.route('/', methods=['GET','POST'])
 
-def check():
+# def check():
     
+#     if request.method == "POST":

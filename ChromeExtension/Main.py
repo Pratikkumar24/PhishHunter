@@ -5,7 +5,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-
+# url ="https://vip-l82.work/sb/?th=#1609078595595"
 
 class HardCode_Scanner:
     def __init__(self, url):
@@ -54,19 +54,19 @@ class CertificateScanner(HardCode_Scanner): #use of inheritance
         result = tldextract.extract(self.sslUrl)
         return result.registered_domain
 
-def start():
-    target_url ="https://vip-l82.work/sb/?th=#1609078595595"
+def start(url):
+    target_url = url
     scan = CertificateScanner(target_url)
 
     result = scan.check_Hardcode()                      #Scanning hardcode
 
     if result == 'X':
-        print("Page not Found!!! (check your internet connection) (point 0)")
-        return 
+        return("Page not Found!!! (check your internet connection) (point 0)")
+         
     elif result:
-        print("Match Found!! Should be rejected (point 1)")
+        return("Match Found!! Should be rejected (point 1)")
     else:
-        print("Found Nothing!! (point 0)")
+        return("Found Nothing!! (point 0)")
 
     # domain_name = scan.domainExtractor()                #extracting domain name
     # print("\n The Domain Name: "+ str(domain_name))
@@ -74,5 +74,4 @@ def start():
 
     validity = scan.certificateScan()                   #certificate scanning
     print("\nThe Validity:"+ str(validity))
-start()
 

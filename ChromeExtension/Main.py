@@ -72,6 +72,6 @@ def start(url):
     # print("\n The Domain Name: "+ str(domain_name))
 
 
-    validity = scan.certificateScan()                   #certificate scanning
-    print("\nThe Validity:"+ str(validity))
+    # validity = scan.certificateScan()                   #certificate scanning
+    # print("\nThe Validity:"+ str(validity))
 

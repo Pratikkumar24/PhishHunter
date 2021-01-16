@@ -1,6 +1,13 @@
 async function scanningUrl(info) {
     const formData = new FormData();
-    link = info.url
+    if (info.selectionText) {
+        link = info.selectionText
+    } else if (info.linkUrl) {
+        link = info.linkUrl
+    } else {
+        link = "X";
+    }
+
     console.log("the link: " + link);
     formData.append('url', link);
 
@@ -13,12 +20,9 @@ async function scanningUrl(info) {
 
     })
     const res = await response.json()
-        // console.log(res['response'])
-        // alert(res['response'])
     result = res['response']
 
-    alert("Here is the result =>" + result)
-        // swal('PhishHunter', 'Your result', 'success')
+    alert(result)
 }
 
 chrome.contextMenus.create({

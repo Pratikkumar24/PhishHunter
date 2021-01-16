@@ -1,5 +1,8 @@
 async function scanningUrl(info) {
+
+
     const formData = new FormData();
+
     if (info.selectionText) {
         link = info.selectionText
     } else if (info.linkUrl) {
@@ -8,7 +11,7 @@ async function scanningUrl(info) {
         link = "X";
     }
 
-    console.log("the link: " + link);
+
     formData.append('url', link);
 
     const response = await fetch('http://127.0.0.1:5000/', {
@@ -19,10 +22,13 @@ async function scanningUrl(info) {
         body: formData,
 
     })
+
+
     const res = await response.json()
     result = res['response']
 
     alert(result)
+
 }
 
 chrome.contextMenus.create({

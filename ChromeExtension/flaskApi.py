@@ -1,6 +1,7 @@
 from flask_api import FlaskAPI
 from flask import request,jsonify
 from flask_cors import CORS
+
 from Main import start
 
 
@@ -13,7 +14,7 @@ app.config["DEBUG"] = True #False in Production
 def example():
     try:
         url = request.data['url']
-        print("\n The url: "+ url)
+        # print("\n The url: "+ url)
         res = start(url)
         
         return {'response': res}

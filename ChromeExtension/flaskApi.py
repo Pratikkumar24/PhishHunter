@@ -14,7 +14,7 @@ app.config["DEBUG"] = True #False in Production
 def example():
     try:
         url = request.data['url']
-        # print("\n The url: "+ url)
+        print("\n The url: "+ url)
         res = start(url)
         
         return {'response': res}

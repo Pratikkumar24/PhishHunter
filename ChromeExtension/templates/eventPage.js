@@ -27,7 +27,7 @@ async function scanningUrl(info) {
     const res = await response.json()
     result = res['response']
 
-    swal(result)
+    alert(result)
 
 }
 

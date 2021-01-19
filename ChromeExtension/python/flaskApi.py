@@ -2,7 +2,7 @@ from flask_api import FlaskAPI
 from flask import request,jsonify
 from flask_cors import CORS
 
-from Main import start
+from Main import SCAN
 
 
 app = FlaskAPI(__name__)
@@ -15,7 +15,7 @@ def example():
     try:
         url = request.data['url']
         print("\n The url: "+ url)
-        res = start(url)
+        res = SCAN(url)
         
         return {'response': res}
     except:

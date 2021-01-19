@@ -1,9 +1,4 @@
-import requests
-import re,html
-import tldextract
-import time
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+from module.Module import *
 
 # url ="https://vip-l82.work/sb/?th=#1609078595595"
 
@@ -12,17 +7,20 @@ class HardCode_Scanner:
         self.session = requests.Session()
         self.target_url = url
         self.chrome_options = webdriver.ChromeOptions()
-    
+        self.completeUrl()
+
+    def completeUrl(self):
+        if not re.match('(?:http|ftp|https)://', self.target_url):
+            self.target_url = 'https://{}'.format(self.target_url)   
+  
     def check_Hardcode(self):
         try:
             response = self.session.get(self.target_url)
         except Exception:
-            response = '404'
-        if '404' in str(response):
             return 'X'
-        else:
-            regex = r" Share it until the blue bar is full|Share until the blue bar is full"
-            return re.search(regex,(response.content).decode(errors="ignore"))
+
+        regex = r" Share it until the blue bar is full|Share until the blue bar is full"
+        return re.search(regex,(response.content).decode(errors="ignore"))
 
 class CertificateScanner(HardCode_Scanner): #use of inheritance
     def __init__(self,CS_url):
@@ -54,10 +52,10 @@ class CertificateScanner(HardCode_Scanner): #use of inheritance
         result = tldextract.extract(self.sslUrl)
         return result.registered_domain
 
-def start(url):
+def SCAN(url):
     target_url = url
     scan = CertificateScanner(target_url)
-
+    
     result = scan.check_Hardcode()                      #Scanning hardcode
 
     if result == 'X':
@@ -67,11 +65,4 @@ def start(url):
         return("Match Found!! Should be rejected (point 1)")
     else:
         return("Found Nothing!! (point 0)")
-
-    # domain_name = scan.domainExtractor()                #extracting domain name
-    # print("\n The Domain Name: "+ str(domain_name))
-
-
-    # validity = scan.certificateScan()                   #certificate scanning
-    # print("\nThe Validity:"+ str(validity))
 

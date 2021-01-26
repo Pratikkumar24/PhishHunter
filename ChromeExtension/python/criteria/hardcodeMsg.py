@@ -34,9 +34,9 @@ def SCAN(url):
         return("Page not Found!!!")
          
     elif result:
-        return("Match Found!! Should be rejected (point 1)")
+        return("Suspecion Increased!!!")
     else:
-        return("Found Nothing!! (point 0)")
+        return("Found Nothing!!")
 
 def domainExtractor(url):                                                # domain extrater for the certificate scanning input
     result = tldextract.extract(url)

@@ -22,10 +22,7 @@
     },
 
     "permissions": [
-        "contextMenus",
-        "storage",
-        "notifications",
-        "tabs"
+        "contextMenus"
     ]
 
 

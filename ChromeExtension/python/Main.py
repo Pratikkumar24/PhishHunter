@@ -6,8 +6,11 @@ def start(url):
     try:
         point = SCAN(url)
         domain_name = domainExtractor(url)
-        suspecion = '70'
-        msg ="DOMAIN: " + domain_name +"\nRESULT: "+ point +"\nSUSPECISON: "+suspecion+"%"
+        if "Suspecion" in point:
+            suspecion = '80'
+        else:
+            suspecion = '10'
+        msg ="DOMAIN := " + domain_name +"\nRESULT := "+ point +"\nDANGER := "+suspecion+"%"
     except Exception:
         msg = "Error Occured(tryAgain)"
 
@@ -15,7 +18,6 @@ def start(url):
         msg = "Please Select a link!!"
 
     notification.notify( 
-                app_name = "VIEH Group",
                 app_icon  = "icon128.ico",
                 title = "PhishHunter", 
                 message= msg, 

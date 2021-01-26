@@ -32,7 +32,7 @@ async function scanningUrl(info) {
 }
 
 chrome.contextMenus.create({
-    title: "Scan with HunterPhisher",
+    title: "Scan with PhishHunter",
     contexts: ["link", "image", "selection"],
     onclick: scanningUrl
 });
